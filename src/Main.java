@@ -6,9 +6,9 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Livro>listarLivros=new ArrayList<>();
-
         System.out.println("Bem vindo ao Sebo Lestras e Jardim!");
+
+        Livro metodoLivro = new Livro();
 
         Scanner leitor = new Scanner(System.in);
         String opcao;
@@ -46,13 +46,12 @@ public class Main {
                     System.out.println("Valor: ");
                     novoLivro.preco=leitor.nextFloat();
 
-                    listarLivros.add(novoLivro);
-                    System.out.println("Cadastrado com sucesso ♥");
+                    metodoLivro.CadastroLivro(novoLivro);
 
                     break;
                 case "2":
-                    if (listarLivros.size()>0){
-                        for (Livro cadaLivro : listarLivros){
+                    if (metodoLivro.ListarLivros().size()>0){
+                        for (Livro cadaLivro : metodoLivro.ListarLivros()){
                             System.out.println("Título: "+cadaLivro.titulo);
                             System.out.println("Autor: "+cadaLivro.autor.nome);
                             System.out.println("Local de nascimento: "+cadaLivro.autor.localNasc);
